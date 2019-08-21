@@ -12,6 +12,9 @@ body{
 	background-color: #2b2b2b ;
 	color: white;
 	height: 50px;
+
+	animation-name: navegacao;
+	animation-duration: 4s
 }
 
 .navigation ul{
@@ -29,6 +32,19 @@ body{
 	padding-right: 30px; 
 	font-size: 18px;
 	font-weight: 100;
+}
+
+.navigation a{
+	color: white;
+	text-decoration: none;
+}
+
+.navigation a:hover{
+	color: #f27609
+}
+
+.navigation li.threelines-icon{
+	display: none;
 }
 
 .capa{
@@ -52,16 +68,23 @@ body{
 }
 
 .profile-pic img{
-	border-radius: 350px;
-	width: 350px;
+	border-radius: 320px;
+	width: 320px;
 	margin-top: 80px; /*sobe a imagem*/
+
+	/* 1** */
+	animation-name: profile-capa;
+	animation-duration: 2s;
 
 }
 
 .profile-title{
 	vertical-align: top;
 	width: 59%;/*colocando a tela responsiva*/
-	margin-top: 200px;
+	margin-top: 150px;
+
+	animation-name: titulo-capa;
+	animation-duration: 2s	
 }
 
 .profile-title h1{
@@ -79,6 +102,9 @@ body{
 
 .main{
 	margin: 80px 180px 80px 100px;
+
+	animation-name: conteudo;
+	animation-duration: 2s
 }
 
 .cv-pic{
@@ -125,6 +151,10 @@ body{
 	display: inline-block;
 }
 
+.caminho a{
+	color: gray;
+}
+
 .social-img{
 	width: 50px;
 	margin-right: 20px;
@@ -141,20 +171,22 @@ body{
 	overflow: hidden; /*Esconde o que aumenta no blackbox*/
 }
 
+.miniatura a{
+	text-decoration: none; /*tira o sublinhado azul do link*/
+}
+
 .blackbox{
 	width: 100%;
 	height: 100%;
 	background-color: black;
 	opacity: 0;
 	padding-top: 120px;/*centraliza as letras mas mais aumenta 100px no blackbox*/
-}
-
-.miniatura a{
-	text-decoration: none; /*tira o sublinhado azul do link*/
+	transition: 1s; /*quando tirar o mouse clarea a imagem*/
 }
 
 .blackbox:hover{
 	opacity: 0.8;
+	transition: 1s; /* A transiçao pra escurecer a tela*/
 }
 
 .blackbox-text{
@@ -172,4 +204,85 @@ body{
 	text-transform: none;
 	font-weight: 100;
 	margin-top: 0;
+}
+
+.foto-trabalho{
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.back-link{
+	color: #f27609;
+}
+
+
+/*@keyframes profile-capa{  movimento para a imagem da home 1** 
+	0%{opacity: 0}
+	100%{opacity: 1;}
+}*/
+
+@keyframes profile-capa{
+	0%{opacity: 0; transform: translate(0px, 20px);}
+	100%{opacity: 1; transform: translate(0px, 0px);}
+}
+
+@keyframes titulo-capa{
+	0%{opacity: 0; transform: translate(0px, -20px);}
+	100%{opacity: 1; transform: translate(0px, 0px);}
+}
+
+@keyframes navegacao{
+	0%{opacity: 0;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@keyframes conteudo{
+	0%{opacity: 0; transform: translate(-20px, 0px);}
+	100%{opacity: 1; transform: translate(0px, 0px);}
+}
+
+@media (max-width: 1000px){
+	.navigation li{
+		display: none;
+	}
+
+	.navigation li.threelines-icon{
+		display: inline-block;
+	}
+
+	.capa div{
+		display: block;
+		height: auto;
+	}
+
+	.profile-pic{
+		background-color: green;
+		width: 100%;
+		max-width: 80%; /*quando a imagem chegar nos 80% ela vai se diminuir automaticamente*/
+	}
+
+	.profile-pic img{
+		margin-top: 0;
+	}
+
+	.profile-title{
+		background-color: yellow;
+		text-align: center;
+		width: 100%;
+	}
+
+	.profile-title h1{
+		margin-top: -80px;
+		font: 40px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+	.profile-title h2{
+		margin-right: 20px;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
 }
